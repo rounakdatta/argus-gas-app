@@ -1,0 +1,65 @@
+<!--
+  Generated template for the DashboardPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <!-- <ion-title>Kezpo Gas</ion-title> -->
+    <button ion-button large full ng-disable="true">Kezpo Gas</button>
+  </ion-navbar>
+</ion-header>
+
+<style>
+.container {
+  position: relative;
+}
+
+div.progress{
+  height:100%;
+  background-color:#125496;
+  width:100%;
+  position:absolute;
+  bottom:0;
+  left:0;
+}
+div.skill-progress{
+  z-index: 1;
+  float:left;
+  margin:0px 50px;
+  background-color:#f2f5fa;
+  height:370px;
+  width:400px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  top: 100px; /* these are the values which alter the vertical position */
+  /* border:5px solid #afdcf8; */
+}
+
+.botijao {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0px; /* these are the values which alter the vertical position */
+  margin: 0 auto;
+  z-index: 3;
+}
+
+</style>
+
+<ion-content padding>
+
+  <div class="container">
+    <br><br><br><br>
+    <img class="botijao" src="https://i.imgur.com/JqzIpfK.png">
+    <div class='skill-progress'>
+        <div class="progress" style="height: 5%" data-progress='80'>
+          
+        </div>
+      </div>
+    </div>
+
+</ion-content>
