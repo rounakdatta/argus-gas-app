@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component, NgZone } from '@angular/core';
+import {AlertController, IonicPage, NavController, NavParams, Platform} from 'ionic-angular';
 
 /**
  * Generated class for the DashboardPage page.
@@ -15,7 +15,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class DashboardPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController, private platform: Platform, private ngZone: NgZone) {
   }
 
   ionViewDidLoad() {

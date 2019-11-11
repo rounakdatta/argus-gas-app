@@ -6,8 +6,8 @@
 -->
 <ion-header>
   <ion-navbar>
-    <!-- <ion-title>Kezpo Gas</ion-title> -->
-    <button ion-button large full ng-disable="true">Kezpo Gas</button>
+    <ion-title style="text-align: center;" size="large">Kezpo Gas</ion-title>
+    <!-- <button ion-button large full ng-disable="true">Kezpo Gas</button> -->
   </ion-navbar>
 </ion-header>
 
@@ -26,17 +26,17 @@ div.progress{
 }
 div.skill-progress{
   z-index: 1;
-  float:left;
+  float:inherit;
   margin:0px 50px;
   background-color:#f2f5fa;
-  height:370px;
-  width:400px;
-  position: absolute;
+  height:280px;
+  width:300px;
+  position: relative;
   left: 0;
   right: 0;
   margin: 0 auto;
-  top: 100px; /* these are the values which alter the vertical position */
-  /* border:5px solid #afdcf8; */
+  top: 7x; /* these are the values which alter the vertical position */
+  border:5px solid #afdcf8;
 }
 
 .botijao {
@@ -46,20 +46,53 @@ div.skill-progress{
   top: 0px; /* these are the values which alter the vertical position */
   margin: 0 auto;
   z-index: 3;
+  height: 370px;
 }
 
 </style>
 
 <ion-content padding>
 
+    <ion-grid>
+        <ion-row text-center align-items-center>
+          <ion-col col-4>
+              <ion-icon name="wifi"></ion-icon> GWiFi
+          </ion-col>
+          <ion-col col-4>
+            <ion-icon name="cog"></ion-icon> MA123
+          </ion-col>
+          <ion-col col-4>
+              <ion-icon name="globe"></ion-icon> 9 minutes ago
+            </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <br><hr>
+
   <div class="container">
     <br><br><br><br>
     <img class="botijao" src="https://i.imgur.com/JqzIpfK.png">
     <div class='skill-progress'>
-        <div class="progress" style="height: 33%" data-progress='80'>
-          
+        <div class="progress" style="height: 85%">
         </div>
       </div>
+
+      <br><br>
+
+      <h1 style="text-align: center;">85%</h1>
     </div>
+
+    <br><hr>  
+
+    <ion-grid>
+      <ion-row text-center align-items-center>
+        <ion-col col-6>
+          <button ion-button size="large" shape="round" color="success">Set An Alert</button>
+        </ion-col>
+        <ion-col col-6>
+          <button ion-button size="large" color="secondary">Book Refill Now</button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
 
 </ion-content>
