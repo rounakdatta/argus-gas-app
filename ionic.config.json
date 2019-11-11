@@ -1,5 +1,7 @@
 {
   "name": "kezpogas",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "ionic-angular"
 }
