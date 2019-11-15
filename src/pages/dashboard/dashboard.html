@@ -56,13 +56,13 @@ div.skill-progress{
     <ion-grid>
         <ion-row text-center align-items-center>
           <ion-col col-4>
-              <ion-icon name="wifi"></ion-icon> GWiFi
+              <ion-icon name="wifi"></ion-icon> {{ wirelessNetwork }}
           </ion-col>
           <ion-col col-4>
-            <ion-icon name="cog"></ion-icon> MA123
+            <ion-icon name="cog"></ion-icon> {{ deviceId }}
           </ion-col>
           <ion-col col-4>
-              <ion-icon name="globe"></ion-icon> 9 minutes ago
+              <ion-icon name="globe"></ion-icon> <span>{{lastSeen | timeAgo}}</span>
             </ion-col>
         </ion-row>
       </ion-grid>

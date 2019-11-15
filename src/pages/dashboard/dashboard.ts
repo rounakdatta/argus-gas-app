@@ -21,6 +21,10 @@ export class DashboardPage {
 
   levelIndicatingColour: String = "#5dd55d";
 
+  deviceId: String = "loading";
+  wirelessNetwork: String = "loading";
+  lastSeen: String = "loading";
+
   constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController, private ngZone: NgZone, private http: HttpClient) {
   }
 
@@ -36,12 +40,17 @@ export class DashboardPage {
   updateLevelPercentage(payload) {
     console.log(payload.current);
 
-    let currentLevel = payload.current;
-    let maxLevel = payload.maximum;
+    let currentLevel = payload.currentLevel;
+    let maxLevel = payload.maximumLevel;
     let percentageLevel = currentLevel / maxLevel * 100;
 
     // set the percentage (label and botijao indicator)
     this.currentLevelPercentage = parseFloat(String(percentageLevel)).toFixed(2) + "%";
+
+    // set all the other data
+    this.deviceId = payload.deviceId;
+    this.wirelessNetwork = payload.wirelessNetwork;
+    this.lastSeen = payload.lastSeen;
 
     // set the color of the level meter
     if (percentageLevel >= 75) {
@@ -56,7 +65,7 @@ export class DashboardPage {
   }
 
   requestLevel() {
-    this.http.get('https://api-simple.rounak.repl.co/sample/data').subscribe((response) => {
+    this.http.get('http://genesisapp.ml/kgas/api/get/status/?c=ROUNAK123').subscribe((response) => {
       console.log(response);
       this.updateLevelPercentage(response);
     });

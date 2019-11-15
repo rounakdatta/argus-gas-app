@@ -13,6 +13,7 @@ import { DashboardPage } from '../pages/dashboard/dashboard';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import {ProgressBarModule} from "angular-progress-bar"
+import {TimeAgoPipe} from 'time-ago-pipe';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {ProgressBarModule} from "angular-progress-bar"
     HelloIonicPage,
     ItemDetailsPage,
     ListPage,
-    DashboardPage
+    DashboardPage,
+    TimeAgoPipe
   ],
   imports: [
     BrowserModule,
