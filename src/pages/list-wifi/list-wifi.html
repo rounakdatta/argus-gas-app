@@ -1,0 +1,93 @@
+<!--
+  Generated template for the ListWifiPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Connect to a Wireless Network</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <h1 align="center" class="bold ion-2x" >{{ DeviceNameHeader }}</h1>
+  <!-- <div align="center">
+    <button ion-button large (click)="startLooking()"><ion-icon name="refresh-circle"></ion-icon></button>
+  </div> -->
+    
+
+    <ion-grid>
+
+        <ion-row>
+            <ion-col xl>
+
+                <!-- <ion-item>
+                    <ion-label>Nearby</ion-label>
+                    <ion-select [(ngModel)]="selectedNetwork" (ionChange)="showSelectValue(selectedNetwork)" placeholder="Select One">
+                        <ion-option align="center" *ngFor="let item of arr; let i = index">
+                            {{ item.slice(0, -1) }}
+                        </ion-option>
+                    </ion-select>
+                </ion-item> -->
+
+
+
+<!--                <h3 class="bold ion-2x" align="center">{{ item.slice(0, -1) }} <ion-icon *ngIf=" item.slice(-1)  == '$'" name="lock"></ion-icon> </h3>-->
+
+<!--    <ion-item>-->
+<!--        <ion-select [(ngModel)]="selectedNetwork" )] >-->
+<!--        <ion-option *ngFor="let item of arr;" (click)="showSelectValue(item)">-->
+<!--            <h3 class="bold ion-2x" align="center">{{ item.slice(0, -1) }} <ion-icon *ngIf=" item.slice(-1)  == '$'" name="lock"></ion-icon> </h3>-->
+<!--        </ion-option>-->
+<!--        </ion-select>-->
+<!--    </ion-item>-->
+
+
+            </ion-col>
+        </ion-row>
+
+
+        
+
+    </ion-grid>
+
+
+
+<ion-list radio-group [(ngModel)]="selectedNetwork">
+
+  <ion-list-header>
+    Nearby WiFi Networks
+  </ion-list-header>
+
+  <ion-item *ngFor="let item of arr; let i = index">
+    <ion-label>{{ item.slice(0, -1) }}</ion-label>
+    <ion-radio value="{{ item.slice(0, -1) }}"></ion-radio>
+  </ion-item>
+
+</ion-list>
+
+
+
+  </ion-content>
+
+<ion-footer>
+<ion-toolbar>
+    <!-- <ion-item>
+    <ion-label>Enter Password</ion-label>
+    <ion-input [(ngModel)]="wifiPassword" type="password" placeholder="PASSWORD"></ion-input>
+    </ion-item> -->
+
+    <ion-item *ngIf="selectedNetwork != 'NULL'">
+      <ion-label floating>Enter Password</ion-label>
+      <ion-input [(ngModel)]="wifiPassword" [type]="passwordType" clearOnEdit="false"></ion-input>
+      <ion-icon item-end [name]="passwordIcon" class="passwordIcon" (click)='hideShowPassword()'></ion-icon>
+  </ion-item>
+
+    <button   ion-button large block (click)="connectToNetwork(wifiPassword, selectedNetwork)">CONNECT</button>
+    <button *ngIf="wifiConnected == true" ion-button large full (click)="openDashboardPage()">Goto Dashboard</button>
+
+</ion-toolbar>
+</ion-footer>

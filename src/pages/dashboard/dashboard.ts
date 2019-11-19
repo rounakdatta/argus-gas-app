@@ -1,6 +1,7 @@
 import { Component, NgZone } from '@angular/core';
 import {AlertController, IonicPage, NavController, NavParams} from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
+import { HomePage } from '../home/home';
 
 /**
  * Generated class for the DashboardPage page.
@@ -78,6 +79,10 @@ export class DashboardPage {
     this.levelRequesterInterval = setInterval(() => {
       this.requestLevel();
     }, 100000) // 100000 means 10 mins
+  }
+
+  gotoSample() {
+    this.navCtrl.push(HomePage);
   }
 
 }

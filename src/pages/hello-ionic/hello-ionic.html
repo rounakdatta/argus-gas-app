@@ -1,25 +1,32 @@
 <ion-header>
   <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Hello Ionic</ion-title>
+    <ion-title style="text-align: center;" size="large">Kezpo Gas</ion-title>
+    <!-- <button ion-button large full ng-disable="true">Kezpo Gas</button> -->
   </ion-navbar>
 </ion-header>
 
 
 <ion-content padding>
 
-  <h3>Welcome to your first Ionic app!</h3>
+    <ion-grid>
+        <ion-row text-center align-items-center>
+            <ion-col col-12>
+                <h1>Welcome to Kezpo Gas</h1>
+              </ion-col>
+          </ion-row>
+    </ion-grid>
 
-  <p>
-    This starter project is our way of helping you get a functional app running in record time.
-  </p>
-  <p>
-    Follow along on the tutorial section of the Ionic docs!
-  </p>
-  <p>
-    <button ion-button color="primary" menuToggle>Toggle Menu</button>
-  </p>
 
+    <ion-grid>
+        <ion-row text-center align-items-center>
+          <ion-col col-12>
+            <button ion-button size="large" shape="round" (click)="gotoDashboard()" color="dark">Dashboard</button>
+          </ion-col>
+        </ion-row>
+        <ion-row text-center align-items-center>
+            <ion-col col-12>
+                <button ion-button size="large" (click)="gotoSettings()" color="medium">Set Up My Device Now</button>
+              </ion-col>
+        </ion-row>
+      </ion-grid>
 </ion-content>

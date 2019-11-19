@@ -1,0 +1,79 @@
+<ion-header>
+  <ion-navbar>
+    <!-- <ion-title>{{ peripheral.name || 'Device' }} Results</ion-title> -->
+    <ion-title></ion-title>
+
+   <ion-buttons end>
+      <button *ngIf="arr?.length > 0" ion-button color="primary" (click)="shareResults()">
+        <ion-icon name="md-share"></ion-icon>
+      </button>
+      <button ion-button color="primary" (click)="PushToMapPage()">
+        <ion-icon name="md-locate"></ion-icon>
+      </button>
+      <button ion-button color="primary" (click)="ListWifiNetworks()">
+        <ion-icon name="md-wifi"> Connect</ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="padding" >
+<!-- class="no-scroll" -->
+  <div *ngIf="arr?.length === 0">
+    <h1> </h1>
+    <h1> </h1>
+    <h1 style="text-align:center;display: block;
+    margin: auto !important;">Waiting for result .....</h1>
+  </div>
+  <div *ngIf="arr?.length > 0">
+  <!-- <ion-card style="height:100%"> -->
+  <ion-grid>
+    <h1 style="margin: 0;" align="center" class="bold ion-2x"> {{Name}}</h1>
+    <p style="margin: 0;" align="left" class="ion-1x">Moisture </p>
+    <h1 style="margin: 0;" align="center" class="ion-5x italics bold blue">{{Moisture}}%</h1>
+    <p style="margin: 0;" align="left" class="ion-1x">Temperature</p>
+    <h2 style="margin: 0;" align="center" class="ion-2x italics bold blue" >{{temperature}}&#176;{{temp_unit}}</h2>
+    <p style="margin: 0;" align="left" class="ion-1x">Test Weight</p>
+    <h1 style="margin: 0;" align="center" class="ion-2x italics bold">{{TW}} {{test_weght_unit}}</h1>
+
+    <ion-row>
+      <ion-col size="6">
+        ID 01:
+      </ion-col>
+      <ion-col>
+        <p class="ion-1x bold">{{nameOne}}</p>
+      </ion-col>
+    </ion-row>
+
+    <br>
+
+    <ion-row>
+      <ion-col size="6">
+        ID 02:
+      </ion-col>
+      <ion-col>
+        <p class="ion-1x bold">{{nameTwo}}</p>
+      </ion-col>
+    </ion-row>
+
+<br><br>
+
+    <!-- <p align="left">ID 01:</p><p align="center" class="ion-1x bold" >{{nameOne}}</p>
+    <p align="left">ID 02:</p><p align="center" class="ion-1x bold" >{{nameTwo}}</p> -->
+	<ion-row>
+	    <ion-col size="5">
+			<p>{{time}}</p>  
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <!-- </ion-card> -->
+</div>
+
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+     <button   ion-button large full (click)="PushToSavePage()">Previous Results</button>
+  </ion-toolbar>
+</ion-footer>

@@ -7,6 +7,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
 import { ItemDetailsPage } from '../pages/item-details/item-details';
 import { ListPage } from '../pages/list/list';
+import { HomePage } from '../pages/home/home';
+import { DetailPage } from '../pages/detail/detail';
+import { ListWifiPage } from '../pages/list-wifi/list-wifi';
 
 import { DashboardPage } from '../pages/dashboard/dashboard';
 
@@ -15,6 +18,18 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import {ProgressBarModule} from "angular-progress-bar"
 import {TimeAgoPipe} from 'time-ago-pipe';
 
+import { BLE } from '@ionic-native/ble';
+import { SocialSharing } from "@ionic-native/social-sharing";
+import { Toast } from '@ionic-native/toast';
+import { GoogleMaps } from '@ionic-native/google-maps';
+import {SaveForLaterPage} from '../pages/save-for-later/save-for-later';
+import {GoogleMapPage} from '../pages/google-map/google-map';
+import { SQLite, SQLiteObject } from '@ionic-native/sqlite';
+import { Geolocation } from '@ionic-native/geolocation';
+
+import { DataService } from '../providers/data/data';
+import { IonicStorageModule } from '@ionic/storage';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -22,13 +37,17 @@ import {TimeAgoPipe} from 'time-ago-pipe';
     ItemDetailsPage,
     ListPage,
     DashboardPage,
-    TimeAgoPipe
+    TimeAgoPipe,
+    HomePage,
+    DetailPage,
+    ListWifiPage
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     IonicModule.forRoot(MyApp),
-    ProgressBarModule
+    ProgressBarModule,
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -36,12 +55,23 @@ import {TimeAgoPipe} from 'time-ago-pipe';
     HelloIonicPage,
     ItemDetailsPage,
     ListPage,
-    DashboardPage
+    DashboardPage,
+    HomePage,
+    DetailPage,
+    ListWifiPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    BLE,
+    DataService,
+    SocialSharing,
+    SQLite,
+    Toast,
+    GoogleMaps,
+    Geolocation,
+    Storage
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
