@@ -29,6 +29,7 @@ import { Geolocation } from '@ionic-native/geolocation';
 
 import { DataService } from '../providers/data/data';
 import { IonicStorageModule } from '@ionic/storage';
+import { Push, PushObject, PushOptions } from '@ionic-native/push/ngx';
 
 @NgModule({
   declarations: [
@@ -71,7 +72,8 @@ import { IonicStorageModule } from '@ionic/storage';
     Toast,
     GoogleMaps,
     Geolocation,
-    Storage
+    Storage,
+    Push
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
