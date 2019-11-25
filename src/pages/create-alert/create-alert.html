@@ -1,0 +1,44 @@
+<!--
+  Generated template for the CreateAlertPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-navbar>
+      <ion-title style="text-align: center;" size="large">Creating New Alert</ion-title>
+      <!-- <button ion-button large full ng-disable="true">Kezpo Gas</button> -->
+    </ion-navbar>
+  </ion-header>
+
+<ion-content padding>
+
+  <h1 style="text-align: center;">ALERT ME WHEN LEVEL REACHES</h1>
+
+  <ion-item>
+      <ion-label>Customer ID</ion-label>
+      <ion-input [(ngModel)]="customerId" clearOnEdit="false" disabled></ion-input>
+    </ion-item>
+
+      <hr>
+    <ion-item>
+      <ion-label floating>Device ID</ion-label>
+      <ion-input [(ngModel)]="deviceId" clearOnEdit="false" disabled></ion-input>
+    </ion-item>
+
+      <hr>
+
+  <ion-item>
+    <ion-range min="0" max="100" step="1" [(ngModel)]="alertPosition">
+    </ion-range>
+  </ion-item>
+
+  <br><hr>
+
+  <h1 style="text-align: center;">{{ alertPosition }}%</h1>
+
+  <br><br>
+
+  <button ion-button large block (click)="createAlert()">Create Alert</button>
+
+</ion-content>

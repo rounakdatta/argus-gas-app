@@ -1,0 +1,36 @@
+<!--
+  Generated template for the RegisterCustomerPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title style="text-align: center;" size="large">Register this Device</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <br><br><br>
+
+  <ion-item>
+      <ion-label>Customer ID</ion-label>
+      <ion-input [(ngModel)]="customerId" clearOnEdit="false"></ion-input>
+    </ion-item>
+
+      <hr>
+    <ion-item>
+      <ion-label floating>Device ID</ion-label>
+      <ion-input [(ngModel)]="deviceId" clearOnEdit="false" disabled></ion-input>
+    </ion-item>
+
+      <hr>
+
+    <ion-item>
+      <ion-label>Maximum Weight</ion-label>
+      <ion-input [(ngModel)]="maximumWeight" clearOnEdit="false"></ion-input>
+  </ion-item>
+
+  <button   ion-button large block (click)="registerCustomer()">Register</button>
+  <button *ngIf="registrationComplete == true" ion-button large full (click)="openDashboardPage()">Goto Dashboard</button>
+</ion-content>

@@ -2,7 +2,7 @@ import { BLE } from "@ionic-native/ble";
 import { Component, NgZone } from "@angular/core";
 import { NavController } from "ionic-angular";
 import { ToastController, Platform, AlertController } from "ionic-angular";
-import { DetailPage } from "../detail/detail";
+import { ListWifiPage } from "../list-wifi/list-wifi";
 declare var FCMPlugin: any;
 
 @Component({
@@ -108,8 +108,8 @@ export class HomePage {
 
   deviceSelected(device) {
     console.log(JSON.stringify(device) + " selected");
-    this.navCtrl.push(DetailPage, {
-      device: device
+    this.navCtrl.push(ListWifiPage, {
+      deviceDetails: device
     });
   }
 }

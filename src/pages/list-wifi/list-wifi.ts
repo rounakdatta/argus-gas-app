@@ -4,6 +4,7 @@ import {AlertController, IonicPage, NavController, NavParams, Platform} from 'io
 import { BLE } from '@ionic-native/ble';
 
 import { DashboardPage } from "../dashboard/dashboard";
+import { RegisterCustomerPage } from "../register-customer/register-customer";
 
 // Bluetooth UUIDs
 const SERVICE = 'ffe0';
@@ -128,7 +129,7 @@ export class ListWifiPage {
         //this.openDashboardPage();
 
         // set configured as true
-        this.localStorage.set('firstSetup', 'true');
+        // this.localStorage.set('firstSetup', 'true');
       } else {
         this.showAlert("WiFi Connection", "Failed! :(");
       }
@@ -250,6 +251,13 @@ export class ListWifiPage {
   openDashboardPage() {
 
       this.navCtrl.push(DashboardPage, {
+        deviceDetails: this.deviceDetails
+      })
+    }
+
+    openRegisterPage() {
+
+      this.navCtrl.push(RegisterCustomerPage, {
         deviceDetails: this.deviceDetails
       })
     }

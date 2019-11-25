@@ -2,6 +2,9 @@ import { Component, NgZone } from '@angular/core';
 import {AlertController, IonicPage, NavController, NavParams} from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
 import { HomePage } from '../home/home';
+import { Storage } from '@ionic/storage';
+
+import { CreateAlertPage } from '../create-alert/create-alert';
 
 /**
  * Generated class for the DashboardPage page.
@@ -26,7 +29,10 @@ export class DashboardPage {
   wirelessNetwork: String = "loading";
   lastSeen: String = "loading";
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController, private ngZone: NgZone, private http: HttpClient) {
+  customerId: String;
+  maximumWeight: String;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController, private ngZone: NgZone, private http: HttpClient, private storage: Storage) {
   }
 
   showAlert(title, message) {
@@ -66,7 +72,11 @@ export class DashboardPage {
   }
 
   requestLevel() {
-    this.http.get('http://genesisapp.ml/kgas/api/get/status/?c=ROUNAK123').subscribe((response) => {
+
+    console.log(this.customerId);
+    console.log(this.deviceId);
+
+    this.http.get('http://genesisapp.ml/kgas/api/get/status/?c=' + this.customerId).subscribe((response) => {
       console.log(response);
       this.updateLevelPercentage(response);
     });
@@ -75,14 +85,28 @@ export class DashboardPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad DashboardPage');
 
-    this.requestLevel();
+    // get the deviceId and the customerId from the local storage
+    this.storage.get('deviceId').then((val) => {
+      this.deviceId = val;
+    })
+    this.storage.get('customerId').then((val) => {
+      this.customerId = val;
+    })
+    this.storage.get('maximumWeight').then((val) => {
+      this.maximumWeight = val;
+    })
+
+    setTimeout(() => {
+      this.requestLevel();
+    }, 1000);
+
     this.levelRequesterInterval = setInterval(() => {
       this.requestLevel();
     }, 100000) // 100000 means 10 mins
   }
 
-  gotoSample() {
-    this.navCtrl.push(HomePage);
+  gotoCreateAlertPage() {
+    this.navCtrl.push(CreateAlertPage);
   }
 
 }

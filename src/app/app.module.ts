@@ -10,6 +10,8 @@ import { ListPage } from '../pages/list/list';
 import { HomePage } from '../pages/home/home';
 import { DetailPage } from '../pages/detail/detail';
 import { ListWifiPage } from '../pages/list-wifi/list-wifi';
+import { RegisterCustomerPage } from '../pages/register-customer/register-customer';
+import { CreateAlertPage } from '../pages/create-alert/create-alert';
 
 import { DashboardPage } from '../pages/dashboard/dashboard';
 
@@ -41,7 +43,9 @@ import { Push, PushObject, PushOptions } from '@ionic-native/push/ngx';
     TimeAgoPipe,
     HomePage,
     DetailPage,
-    ListWifiPage
+    ListWifiPage,
+    RegisterCustomerPage,
+    CreateAlertPage
   ],
   imports: [
     BrowserModule,
@@ -59,7 +63,9 @@ import { Push, PushObject, PushOptions } from '@ionic-native/push/ngx';
     DashboardPage,
     HomePage,
     DetailPage,
-    ListWifiPage
+    ListWifiPage,
+    RegisterCustomerPage,
+    CreateAlertPage
   ],
   providers: [
     StatusBar,
