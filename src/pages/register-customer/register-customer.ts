@@ -37,11 +37,10 @@ export class RegisterCustomerPage {
   }
 
   registerCustomer() {
-      this.http.post('http://genesisapp.ml/kgas/api/register/customer/', {
-        'deviceId': this.deviceId,
-        'customerId': this.customerId,
-        'maximumWeight': this.maximumWeight
-    }).subscribe((response) => {
+    var customerRegistrationPayload = "deviceId=" + this.deviceId + "&customerId=" + this.customerId + "&maximumWeight=" + this.maximumWeight;
+    var header = { headers: {'Content-Type': 'application/x-www-form-urlencoded'} };
+
+      this.http.post('http://genesisapp.ml/kgas/api/register/customer/', customerRegistrationPayload, header).subscribe((response) => {
         console.log(response);
         this.registrationComplete = true;
     });

@@ -44,12 +44,11 @@ export class CreateAlertPage {
 
   createAlert() {
 
+    var alertCreationPayload = "deviceId=" + this.deviceId + "&customerId=" + this.customerId + "&alertLevel=" + this.alertPosition;
+    var header = { headers: {'Content-Type': 'application/x-www-form-urlencoded'} };
+
     // POST request to create the alert
-    this.http.post('http://genesisapp.ml/kgas/api/set/alert/', {
-        'deviceId': this.deviceId,
-        'customerId': this.customerId,
-        'alertLevel': this.alertPosition
-    }).subscribe((response) => {
+    this.http.post('http://genesisapp.ml/kgas/api/set/alert/', alertCreationPayload, header).subscribe((response) => {
         console.log(response);
     });
 
