@@ -37,13 +37,26 @@ export class RegisterCustomerPage {
   }
 
   registerCustomer() {
-    var customerRegistrationPayload = "deviceId=" + this.deviceId + "&customerId=" + this.customerId + "&maximumWeight=" + this.maximumWeight;
-    var header = { headers: {'Content-Type': 'application/x-www-form-urlencoded'} };
 
-      this.http.post('http://genesisapp.ml/kgas/api/register/customer/', customerRegistrationPayload, header).subscribe((response) => {
-        console.log(response);
-        this.registrationComplete = true;
-    });
+    // get the playerId from OneSignal plugin
+    window["plugins"].OneSignal
+    .getPermissionSubscriptionState((response) => {
+      let subscriptionStatus = response.subscriptionStatus;
+      let playerId = subscriptionStatus.userId;
+      console.log(playerId);
+
+      this.storage.set('playerId', playerId);
+
+      // register the user and set up playerId for targeted notifications
+      var customerRegistrationPayload = "deviceId=" + this.deviceId + "&customerId=" + this.customerId + "&maximumWeight=" + this.maximumWeight + "&playerId=" + playerId;
+      var header = { headers: {'Content-Type': 'application/x-www-form-urlencoded'} };
+  
+        this.http.post('http://genesisapp.ml/kgas/api/register/customer/', customerRegistrationPayload, header).subscribe((response) => {
+          console.log(response);
+          this.registrationComplete = true;
+      });
+      
+    })
 
     // store the registration details in local storage
     this.storage.set('deviceId', this.deviceId);
